@@ -341,7 +341,7 @@ class EvaluationModule(EvaluationModuleInfoMixin):
     def _check_all_processes_locks(self):
         expected_lock_file_names = [
             os.path.join(self.data_dir, f"{self.experiment_id}-{self.num_process}-{process_id}.arrow.lock")
-            for process_id in range(self.num_process)
+            for process_id in range(1, self.num_process)
         ]
         for expected_lock_file_name in expected_lock_file_names:
             nofilelock = FileFreeLock(expected_lock_file_name)
